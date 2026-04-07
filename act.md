@@ -33,10 +33,10 @@ The following diagram traces the main workflows of the system, identifying actor
 ```mermaid
 flowchart TD
     subgraph Actors
-        DEV["🧑‍💻 Developer"]
-        PM["📋 Project Manager"]
-        ADMIN["🔧 System Administrator"]
-        BOT_USER["📱 Telegram Bot User"]
+        DEV["Developer"]
+        PM["Project Manager"]
+        ADMIN["System Administrator"]
+        BOT_USER["Telegram Bot User"]
     end
 
     subgraph AUTH_FLOW["Authentication Workflow"]
