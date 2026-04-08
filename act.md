@@ -123,28 +123,54 @@ This partitioning aligns closely with a layered architecture pattern and clearly
 
 ```mermaid
 graph TD
-    subgraph PRESENTATION["🖥️ Presentation Layer"]
-        WEB["Web Application\n(React SPA)\n──────────────\n• Login Interface\n• Kanban Board UI\n• Task Management UI"]
+    subgraph PRESENTATION["Presentation Layer"]
+        WEB["Web Application
+        (React SPA) 
+        Login Interface 
+        Task Management UI"]
     end
 
-    subgraph GATEWAY["🔀 API Gateway Layer"]
-        GW["OCI API Gateway\n──────────────\n• Request Router\n• CORS Handler\n• JWT / Auth Filter\n• Security Filters"]
+    subgraph GATEWAY["API Gateway Layer"]
+        GW["OCI API Gateway
+        Request Router
+        CORS Handler
+        JWT / Auth Filter
+        Security Filters"]
     end
 
-    subgraph BUSINESS["⚙️ Business Logic Layer (Microservices)"]
-        AUTH["User & Auth\nMicroservice\n──────────────\n• Authentication Service\n• JWT Validation Module\n• RBAC Logic"]
+    subgraph BUSINESS["Business Logic Layer (Microservices)"]
+        AUTH["User & Auth
+        Microservice
+        Authentication Service
+        JWT Validation Module
+        RBAC Logic"]
 
-        TASK["Project & Task\nMicroservice\n──────────────\n• Task API Endpoints\n• Sprint Management Module\n• KPI Calculation Service"]
+        TASK["Project & Task
+        Microservice
+        Task API Endpoints
+        Sprint Management Module
+        KPI Calculation Service"]
 
-        BOT["Bot & LLM\nMicroservice\n──────────────\n• Telegram Webhook Handler\n• LLM Processing Module\n• Command Parser"]
+        BOT["Bot & LLM
+        Microservice
+        Telegram Webhook Handler
+        LLM Processing Module
+        Command Parser"]
     end
 
-    subgraph DATA["🗄️ Data Layer"]
-        DB["Oracle Autonomous\nDatabase (ATP)\n──────────────\n• Users & Auth Schema\n• Projects & Tasks Schema\n• Sprints Schema"]
+    subgraph DATA["Data Layer"]
+        DB["Oracle Autonomous
+        Database (ATP)
+        Users & Auth Schema
+        Projects & Tasks Schema
+        Sprints Schema"]
     end
 
-    subgraph IDENTITY["☁️ Identity Provider"]
-        IAM["OCI IAM\n──────────────\n• OIDC / OAuth2\n• Role Assignment\n• Policy Enforcement"]
+    subgraph IDENTITY["Identity Provider"]
+        IAM["OCI IAM
+        OIDC / OAuth2
+        Role Assignment
+        Policy Enforcement"]
     end
 
     WEB -->|"HTTPS Requests"| GW
@@ -159,8 +185,10 @@ graph TD
     AUTH <-->|"OIDC Redirect / Token Validation"| IAM
     WEB <-->|"OCI IAM Login Redirect"| IAM
 
-    BOT -->|"Telegram API (outbound)"| TELE["📱 Telegram API\n(External)"]
-    BOT -->|"Gemini API (NLP)"| GEMINI["🤖 Gemini API\n(External)"]
+    BOT -->|"Telegram API (outbound)"| TELE["Telegram API
+    (External)"]
+    BOT -->|"Gemini API (NLP)"| GEMINI["Gemini API
+    (External)"]
 ```
 
 **Key interactions in Technical Partitioning:**
@@ -179,29 +207,51 @@ This partitioning aligns more closely with how the business thinks about the sys
 
 ```mermaid
 graph TD
-    subgraph AUTH_DOMAIN["🔐 Authentication Domain"]
-        AUTH_SVC["User & Auth Microservice\n──────────────\n• Sign-in / Sign-up Forms\n• JWT Validation Module\n• RBAC Logic\n• OCI IAM Integration"]
+    subgraph AUTH_DOMAIN["Authentication Domain"]
+        AUTH_SVC["User & Auth Microservice
+        Sign-in / Sign-up Forms
+        JWT Validation Module
+        RBAC Logic
+        OCI IAM Integration"]
     end
 
-    subgraph TASK_DOMAIN["📋 Task & Project Domain"]
-        TASK_SVC["Project & Task Microservice\n──────────────\n• Task API Endpoints\n• Sprint Management\n• Project Tracking\n• KPI Calculation"]
-        KANBAN["Kanban Board UI\n(Web App Module)\n──────────────\n• Column Views (TODO→DONE)\n• Drag-and-Drop\n• Task Cards"]
+    subgraph TASK_DOMAIN["Task & Project Domain"]
+        TASK_SVC["Project & Task Microservice
+        Task API Endpoints
+        Sprint Management
+        Project Tracking
+        KPI Calculation"]
+        KANBAN["Kanban Board UI
+        (Web App Module)
+        Column Views (TODO→DONE)
+        Drag-and-Drop
+        Task Cards"]
     end
 
-    subgraph BOT_DOMAIN["🤖 Conversational Bot Domain"]
-        BOT_SVC["Bot & LLM Microservice\n──────────────\n• Telegram Webhook Handler\n• Gemini NLP Processing\n• Command Parser\n• Action Dispatcher"]
+    subgraph BOT_DOMAIN["Conversational Bot Domain"]
+        BOT_SVC["Bot & LLM Microservice
+        Telegram Webhook Handler
+        Gemini NLP Processing
+        Command Parser
+        Action Dispatcher"]
     end
 
-    subgraph INFRA_DOMAIN["🌐 Infrastructure Domain"]
-        GW["OCI API Gateway\n──────────────\n• Routing\n• CORS\n• Security Filters"]
-        DB["Oracle ATP Database\n──────────────\n• All persistent schemas"]
-        IAM["OCI IAM\n──────────────\n• Identity & Access"]
+    subgraph INFRA_DOMAIN["Infrastructure Domain"]
+        GW["OCI API Gateway
+        Routing
+        CORS
+        Security Filters"]
+        DB["Oracle ATP Database
+        All persistent schemas"]
+        IAM["OCI IAM
+        Identity & Access"]
     end
 
-    USER["👤 User\n(Developer / PM / Admin)"] -->|"Login"| AUTH_SVC
+    USER["User
+    (Developer / PM / Admin)"] -->|"Login"| AUTH_SVC
     USER -->|"Web Interactions"| KANBAN
 
-    TELE_USER["📱 Telegram User"] -->|"Natural Language Commands"| BOT_SVC
+    TELE_USER["Telegram User"] -->|"Natural Language Commands"| BOT_SVC
 
     AUTH_SVC -->|"Token + Role"| GW
     KANBAN -->|"Task CRUD via Gateway"| GW
@@ -216,8 +266,8 @@ graph TD
 
     AUTH_SVC <-->|"OIDC Flows"| IAM
 
-    BOT_SVC -->|"Webhook Events"| TELE_API["📡 Telegram API"]
-    BOT_SVC -->|"NLP Requests"| GEMINI_API["🧠 Gemini API"]
+    BOT_SVC -->|"Webhook Events"| TELE_API["Telegram API"]
+    BOT_SVC -->|"NLP Requests"| GEMINI_API["Gemini API"]
 
     KANBAN -->|"Task State Display"| TASK_SVC
 ```
