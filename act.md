@@ -1,8 +1,13 @@
-# M4 – Component-Based Thinking: Component Identification & Architecture Partitioning
+# Sprint 1, Module 5 Design & Architecture (Paco)
 
-**Team 13** | Software Systems Planning (Gpo 101) | Guadalajara Campus  
-**Project:** Cloud-Native Project Management Tool  
-**Date:** April 7, 2026
+**Team 13:** <br>
+Ana Paula Navarro Hernández - A01644875 <br>
+Ana Elena Velasco García - A01639866 <br>
+Baltazar Servín Riveroll - A01643496 <br>
+Luis Ignacio Gómez López - A01644423 <br>
+Jozef David Hernández Campos - A01644644 
+  
+**Date:** April 8, 2026 | Software Systems Planning (Gpo 101) | Guadalajara Campus 
 
 ---
 
