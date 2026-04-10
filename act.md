@@ -7,7 +7,7 @@ Baltazar Servín Riveroll - A01643496 <br>
 Luis Ignacio Gómez López - A01644423 <br>
 Jozef David Hernández Campos - A01644644 
   
-**Date:** April 09, 2026 | Software Systems Planning (Gpo 101) | Guadalajara Campus 
+**Date:** April 10, 2026 | Software Systems Planning (Gpo 101) | Guadalajara Campus 
 
 ---
 
@@ -284,13 +284,3 @@ graph TD
 - **Conversational Bot Domain:** <br>Acts as an alternative user interface to the Task domain, translating natural language into structured task operations.
 - **Infrastructure Domain:** <br>Is shared by all other domains but is treated as a concern separate from business logic, consistent with the Stable Dependencies Principle (stable components that many depend on, but that depend on very little themselves).
 
----
-
-## Summary
-
-| Partitioning Style | Best For | Our Use |
-|---|---|---|
-| **Technical** | Clear layer separation, layered monolith patterns, easy to apply CORS/Auth globally | Useful for our API Gateway and infrastructure design |
-| **Domain** | Aligns with business capability, easier microservices migration, message flows match real workflows | Preferred view for team collaboration and future scaling |
-
-Both views are complementary. The technical partitioning guides how we deploy and secure the system, the domain partitioning guides how we evolve and own each business capability independently.
