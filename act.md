@@ -32,7 +32,9 @@ Around the cohesive activities within each workflow, ensuring high cohesion with
 
 This approach is also well-suited to our architecture, which is cloud-native and microservices-oriented, since the workflows translate naturally into service boundaries.
 
-<br>**Diagram to explain the Workflow Flow** 
+---
+
+## 2. Workflow Diagram 
 
 The following diagram traces the main workflows of the system, identifying actors, the actions they perform, and the components they interact with.
 
